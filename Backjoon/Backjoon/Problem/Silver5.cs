@@ -46,7 +46,7 @@ namespace Backjoon.Problem
                         {
                             string indexStr = wordCheckDict[i].ElementAt(j).Value.Clone() as string;
                             string[] splitIndex = indexStr.Split(',');
-                            bool isContinue = false;
+                            bool isContinue = true;
 
                             if (splitIndex.Length > 1)
                             {
@@ -63,10 +63,6 @@ namespace Backjoon.Problem
                                         {
                                             isContinue = false;
                                             break;
-                                        }
-                                        else
-                                        {
-                                            isContinue = true;
                                         }
                                     }
                                 }
