@@ -12,7 +12,35 @@ namespace Backjoon.Problem
         // 그룹 단어 체커
         public void Solve_1316()
         {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string numStr = sr.ReadLine();
+                int loopCount = 0;
+                bool isSuccess = int.TryParse(numStr, out loopCount);
 
+                if (isSuccess)
+                {
+                    string[] wordArray = new string[loopCount];
+                    Dictionary<char, string>[] wordCheckDict = new Dictionary<char, string>[loopCount];
+                    for (int i = 0; i < wordArray.Length; i++)
+                    {
+                        wordArray[i] = sr.ReadLine();
+                        wordCheckDict[i] = new Dictionary<char, string>();
+
+                        for (int j = 0; j < wordArray[i].Length; j++)
+                        {
+                            if (!wordCheckDict[i].ContainsKey(wordArray[i][j]))
+                            {
+                                wordCheckDict[i].Add(wordArray[i][j], j.ToString());
+                            }
+                            else
+                            {
+                                wordCheckDict[i][wordArray[i][j]] += string.Format($",{j}");
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         // 크로아티아 알파벳
