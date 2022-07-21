@@ -22,6 +22,9 @@ namespace Backjoon.Problem
                 {
                     string[] wordArray = new string[loopCount];
                     Dictionary<char, string>[] wordCheckDict = new Dictionary<char, string>[loopCount];
+                    bool isGroupWord = true;
+                    int groupWordCount = 0;
+
                     for (int i = 0; i < wordArray.Length; i++)
                     {
                         wordArray[i] = sr.ReadLine();
@@ -38,7 +41,49 @@ namespace Backjoon.Problem
                                 wordCheckDict[i][wordArray[i][j]] += string.Format($",{j}");
                             }
                         }
+
+                        for (int j = 0; j < wordCheckDict[i].Count; j++)
+                        {
+                            string indexStr = wordCheckDict[i].ElementAt(j).Value.Clone() as string;
+                            string[] splitIndex = indexStr.Split(',');
+                            bool isContinue = false;
+
+                            if (splitIndex.Length > 1)
+                            {
+                                int prev, next;
+
+                                for (int k = 1; k < splitIndex.Length; k++)
+                                {
+                                    isSuccess &= int.TryParse(splitIndex[k - 1], out prev);
+                                    isSuccess &= int.TryParse(splitIndex[k], out next);
+
+                                    if (isSuccess)
+                                    {
+                                        if (prev + 1 != next)
+                                        {
+                                            isContinue = false;
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            isContinue = true;
+                                        }
+                                    }
+                                }
+
+                                isGroupWord &= isContinue;
+                            }
+                        }
+
+                        if (isGroupWord)
+                        {
+                            groupWordCount++;
+                        }
+
+                        isGroupWord = true;
                     }
+
+                    Console.WriteLine(groupWordCount);
                 }
             }
         }

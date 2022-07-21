@@ -9,7 +9,7 @@ namespace Backjoon
         {
             Silver5 s5 = new Silver5();
 
-            s5.Solve_2941();
+            s5.Solve_1316();
         }
     }
 }
