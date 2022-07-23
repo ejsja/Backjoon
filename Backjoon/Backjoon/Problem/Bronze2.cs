@@ -24,6 +24,87 @@ namespace Backjoon.Problem
             }
         }
 
+        // 손익분기점
+        public void Solve_1712()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+                char[] seperateChar = { ' ', '\t' };
+                string[] strArr = str.Split(seperateChar, StringSplitOptions.RemoveEmptyEntries);
+
+                if (strArr.Length == 3)
+                {
+                    int pixedCost = int.Parse(strArr[0]);
+                    int produceCost = int.Parse(strArr[1]);
+                    int sellCost = int.Parse(strArr[2]);
+
+                    if (produceCost >= sellCost)
+                    {
+                        Console.WriteLine(-1);
+                    }
+                    else
+                    {
+                        int difference = sellCost - produceCost;
+
+                        int ret = pixedCost / difference + 1;
+                        Console.WriteLine(ret);
+                    }
+                }
+            }
+        }
+
+        // 벌집
+        public void Solve_2292()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+
+                int num = int.Parse(str);
+
+                int s0 = 1;
+                int e0 = 1;
+                int diff = 6;
+
+                int sB0 = 1;
+                int eB0 = 6;
+
+                int sPrev = 0;
+                int ePrev = 0;
+                int sNext = s0 + sB0;
+                int eNext = e0 + eB0;
+
+                int count = 1;
+
+                while (true)
+                {
+                    if (num < sNext)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        count++;
+
+                        if (num >= sNext && num <= eNext)
+                        {                            
+                            break;
+                        }
+                        else
+                        {
+                            sPrev = sNext;
+                            sNext = sPrev + diff * (count - 1);
+                            ePrev = eNext;
+                            eNext = ePrev + diff * count;
+                        }
+                    }
+                }
+
+                Console.WriteLine(count);
+            }
+        }
+
         // 숫자의 개수
         public void Solve_2577()
         {

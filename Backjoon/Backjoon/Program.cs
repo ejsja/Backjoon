@@ -7,9 +7,10 @@ namespace Backjoon
     {
         static void Main(string[] args)
         {
-            Silver5 s5 = new Silver5();
+            Bronze2 b2 = new Bronze2();
+            //Silver5 s5 = new Silver5();
 
-            s5.Solve_1316();
+            b2.Solve_2292();
         }
     }
 }
