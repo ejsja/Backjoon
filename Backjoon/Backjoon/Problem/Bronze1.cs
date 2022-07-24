@@ -118,6 +118,61 @@ namespace Backjoon.Problem
             }
         }
 
+        // 분수찾기
+        public void Solve_1193()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+                int first = 1;
+                int second = 1;
+                int num = int.Parse(str);
+                
+                if (num == 1)
+                {
+                    Console.WriteLine($"{first}/{second}");
+                }
+                else
+                {
+                    int loopCount = 1;
+                    int sum = 0;
+
+                    while (num > sum)
+                    {
+                        loopCount++;
+                        sum = loopCount * (loopCount + 1) / 2;
+                    }
+
+                    if (loopCount % 2 == 0)
+                    {
+                        first = loopCount;
+                    }
+                    else
+                    {
+                        second = loopCount;
+                    }
+
+                    while (sum != num)
+                    {
+                        sum--;
+
+                        if (loopCount % 2 == 0)
+                        {
+                            first--;
+                            second++;
+                        }
+                        else
+                        {
+                            second--;
+                            first++;
+                        }
+                    }
+
+                    Console.WriteLine($"{first}/{second}");
+                }
+            }
+        }
+
         // 평균
         public void Solve_1546()
         {
