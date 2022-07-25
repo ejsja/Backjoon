@@ -84,6 +84,32 @@ namespace Backjoon.Problem
             }
         }
 
+        // 달팽이는 올라가고 싶다
+        public void Solve_2869()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+                string[] strArr = str.Split(' ');
+                
+                if (strArr.Length == 3)
+                {
+                    int up = int.Parse(strArr[0]);
+                    int down = int.Parse(strArr[1]);
+                    int goal = int.Parse(strArr[2]);
+                    int days = 0;
+                    int distance = up - down;
+
+                    int temp = goal - up;
+                    temp = (int)Math.Ceiling((double)temp / (double)distance);
+                    days = ++temp;
+
+
+                    Console.WriteLine(days);
+                }
+            }
+        }
+
         // 크로아티아 알파벳
         public void Solve_2941()
         {
