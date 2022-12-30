@@ -224,6 +224,59 @@ namespace Backjoon.Problem
             }
         }
 
+        // 킹, 퀸, 룩, 비숍, 나이트, 폰
+        public void Solve_3003()
+        {
+            string str = Console.ReadLine();
+            string[] arr = str.Split(' ');
+
+            if (arr.Length == 6)
+            {
+                int[] c = new int[] { 1, 1, 2, 2, 2, 8 };
+                int[] input = new int[6];
+
+                for (int i = 0; i < input.Length; i++)
+                {
+                    input[i] = Convert.ToInt32(arr[i]);
+                    if (i < input.Length - 1)
+                    {
+                        Console.Write($"{c[i] - input[i]} ");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{c[i] - input[i]}");
+                    }
+                }
+            }
+        }
+
+        // 과제 안 내신 분..?
+        public void Solve_5597()
+        {
+            bool[] result = new bool[30];
+            for (int i = 0; i < 28; i++)
+            {
+                string temp = Console.ReadLine();
+                int convert = int.MinValue;
+                bool ret = int.TryParse(temp, out convert);
+                
+                if (ret && convert is (> 0 and < 31))
+                {
+                    result[convert - 1] = true;
+                }
+            }
+
+            int count = Array.FindAll(result, x => x == false).Count();
+
+            if (count == 2)
+            {
+                int firstIndex = Array.FindIndex(result, x => x == false);
+                int lastIndex = Array.FindLastIndex(result, x => x == false);
+
+                Console.WriteLine($"{firstIndex + 1}\n{lastIndex + 1}");
+            }
+        }
+
         // 합
         public void Solve_8393()
         {
@@ -318,6 +371,20 @@ namespace Backjoon.Problem
         {
             Console.WriteLine("강한친구 대한육군");
             Console.WriteLine("강한친구 대한육군");
+        }
+
+        // 개수 세기
+        public void Solve_10807()
+        {
+            string str = Console.ReadLine();
+            string input = Console.ReadLine();
+            string findNumStr = Console.ReadLine();
+            string[] numStrArr = input.Split(' ');
+
+            if (numStrArr.Length == Convert.ToInt32(str))
+            {
+                Console.WriteLine(Array.FindAll(numStrArr, x => x == findNumStr).Length);
+            }
         }
 
         // 알파벳 찾기
