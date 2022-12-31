@@ -849,5 +849,31 @@ namespace Backjoon.Problem
             string saessack = "         ,r'\"7\nr`-_   ,'  ,/\n \\. \". L_r'\n   `~\\/\n      |\n      |";
             Console.WriteLine(saessack);
         }
+
+        // 영수증
+        public void Solve_25304()
+        {
+            string totalStr = Console.ReadLine();
+            string numStr = Console.ReadLine();
+            int loopCnt = Convert.ToInt32(numStr);
+
+            int sum = 0;
+
+            for (int i = 0; i < loopCnt; i++)
+            {
+                string temp = Console.ReadLine();
+                string[] split = temp.Split(' ');
+                sum += (Convert.ToInt32(split[0]) * Convert.ToInt32(split[1]));
+            }
+            
+            if (sum == Convert.ToInt32(totalStr))
+            {
+                Console.WriteLine("Yes");
+            }
+            else
+            {
+                Console.WriteLine("No");
+            }
+        }
     }
 }
