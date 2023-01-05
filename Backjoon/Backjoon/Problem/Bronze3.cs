@@ -141,6 +141,39 @@ namespace Backjoon.Problem
             }
         }
 
+        public void Solve_10250()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string loopStr = sr.ReadLine();
+                int loopCnt = int.Parse(loopStr);
+                StringBuilder sb = new StringBuilder();
+
+                for (int i = 0; i < loopCnt; i++)
+                {
+                    string caseStr = sr.ReadLine();
+                    string[] split = caseStr.Split(' ');
+                    int h = int.Parse(split[0]);
+                    int w = int.Parse(split[1]);
+                    int n = int.Parse(split[2]);
+
+                    int divide = n / h;
+                    int mod = n % h;
+
+                    if (mod == 0)
+                    {
+                        sb.AppendLine($"{h}{(divide):D2}");
+                    }
+                    else
+                    {
+                        sb.AppendLine($"{mod}{(divide + 1):D2}");
+                    }
+                }
+
+                Console.WriteLine(sb);
+            }
+        }
+
         // 최소, 최대
         public void Solve_10818()
         {
