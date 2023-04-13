@@ -13,7 +13,7 @@ namespace Backjoon
             //Bronze5 b5 = new Bronze5();
             //Silver5 s5 = new Silver5();
 
-            b2.Solve_10813();
+            b2.Solve_10811();
         }
     }
 }

@@ -169,6 +169,15 @@ namespace Backjoon.Problem
             }
         }
 
+        // 단어 길이 재기
+        public void Solve_2743()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                Console.WriteLine(sr.ReadLine().Length);
+            }
+        }
+
         // N 찍기
         public void Solve_2741()
         {
@@ -259,7 +268,7 @@ namespace Backjoon.Problem
                 string temp = Console.ReadLine();
                 int convert = int.MinValue;
                 bool ret = int.TryParse(temp, out convert);
-                
+
                 if (ret && convert is (> 0 and < 31))
                 {
                     result[convert - 1] = true;
@@ -286,6 +295,21 @@ namespace Backjoon.Problem
             if (num > 0 && num < 10001)
             {
                 Console.WriteLine(num * (num + 1) / 2);
+            }
+        }
+
+        // 문자열
+        public void Solve_9086()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                int loopCount = Convert.ToInt32(sr.ReadLine());
+
+                for (int i = 0; i < loopCount; i++)
+                {
+                    string str = sr.ReadLine();
+                    Console.WriteLine($"{str.First()}{str.Last()}");
+                }
             }
         }
 
@@ -786,6 +810,21 @@ namespace Backjoon.Problem
             }
         }
 
+        // 그대로 출력하기
+        public void Solve_11718()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                int count = 0;
+
+                while (count < 100)
+                {
+                    Console.WriteLine(sr.ReadLine());
+                    count++;
+                }
+            }
+        }
+
         // 사분면 고르기
         public void Solve_14681()
         {
@@ -900,6 +939,17 @@ namespace Backjoon.Problem
                 }
 
                 Console.WriteLine("int");
+            }
+        }
+
+        // 문자와 문자열
+        public void Solve_27866()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+                int index = Convert.ToInt32(sr.ReadLine());
+                Console.WriteLine(str.ElementAt(index - 1));
             }
         }
     }

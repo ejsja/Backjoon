@@ -341,8 +341,76 @@ namespace Backjoon.Problem
             }
         }
 
+        // 바구니 뒤집기
+        public void Solve_10811()
+        {
+            int netCount = 0;
+            int loopCount = 0;
+
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string[] strArr = sr.ReadLine().Split(" ");
+
+                if (strArr.Length != 2)
+                {
+                    return;
+                }
+
+                netCount = Convert.ToInt32(strArr[0]);
+                loopCount = Convert.ToInt32(strArr[1]);
+
+                if (netCount < 0 || loopCount < 0)
+                {
+                    return;
+                }
+
+                int[] arr = new int[netCount];
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    arr[i] = i + 1;
+                }
+
+                for (int i = 0; i < loopCount; i++)
+                {
+                    strArr = sr.ReadLine().Split(" ");
+
+                    if (strArr.Length != 2)
+                    {
+                        return;
+                    }
+
+                    int start = Convert.ToInt32(strArr[0]);
+                    int end = Convert.ToInt32(strArr[1]);
+
+                    if (start < 0 || end < 0)
+                    {
+                        return;
+                    }
+
+                    int[] temp = arr.Skip(start - 1).Take(end - start + 1).Reverse().ToArray();
+                    int count = 0;
+                    for (int j = start - 1; j < end; j++)
+                    {
+                        arr[j] = temp[count++];                        
+                    }
+                }
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (i != arr.Length - 1)
+                    {
+                        Console.Write($"{arr[i]} ");
+                    }
+                    else
+                    {
+                        Console.Write($"{arr[i]}");
+                    }
+                }
+            }
+        }
+
         // 공 바꾸기
-        // 공 넣기
         public void Solve_10813()
         {
             int netCount = 0;
