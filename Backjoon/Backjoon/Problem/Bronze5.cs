@@ -766,6 +766,16 @@ namespace Backjoon.Problem
             }
         }
 
+        // 꼬마 정민
+        public void Solve_11382()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string numStr = sr.ReadLine();
+                Console.WriteLine(numStr.Split(" ").Select(a => long.Parse(a)).Sum());
+            }
+        }
+
         // 아스키 코드
         public void Solve_11654()
         {
@@ -873,6 +883,23 @@ namespace Backjoon.Problem
             else
             {
                 Console.WriteLine("No");
+            }
+        }
+
+        // 코딩은 체육과목 입니다.
+        public void Solve_25314()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                int num = Convert.ToInt32(sr.ReadLine());
+                int count = num / 4;
+
+                for (int i = 0; i < count; i++)
+                {
+                    Console.Write("long ");
+                }
+
+                Console.WriteLine("int");
             }
         }
     }

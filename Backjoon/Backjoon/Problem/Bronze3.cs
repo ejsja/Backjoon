@@ -174,6 +174,68 @@ namespace Backjoon.Problem
             }
         }
 
+        // 공 넣기
+        public void Solve_10810()
+        {
+            int netCount = 0;
+            int loopCount = 0;
+
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string[] strArr = sr.ReadLine().Split(" ");
+
+                if (strArr.Length != 2)
+                {
+                    return;
+                }
+
+                netCount = Convert.ToInt32(strArr[0]);
+                loopCount = Convert.ToInt32(strArr[1]);
+
+                if (netCount < 0 || loopCount < 0)
+                {
+                    return;
+                }
+
+                int[] arr = new int[netCount];
+                for (int i = 0; i < loopCount; i++)
+                {
+                    strArr = sr.ReadLine().Split(" ");
+
+                    if (strArr.Length != 3)
+                    {
+                        return;
+                    }
+
+                    int start = Convert.ToInt32(strArr[0]);
+                    int end = Convert.ToInt32(strArr[1]);
+                    int num = Convert.ToInt32(strArr[2]);
+
+                    if (start < 0 || end < 0 || num < 0)
+                    {
+                        return;
+                    }
+
+                    for (int j = start - 1; j < end; j++)
+                    {
+                        arr[j] = num;
+                    }
+                }
+
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (i != arr.Length - 1)
+                    {
+                        Console.Write($"{arr[i]} ");
+                    }
+                    else
+                    {
+                        Console.Write($"{arr[i]}");
+                    }
+                }
+            }
+        }
+
         // 최소, 최대
         public void Solve_10818()
         {
