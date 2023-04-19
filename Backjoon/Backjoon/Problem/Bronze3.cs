@@ -9,6 +9,45 @@ namespace Backjoon.Problem
 {
     public class Bronze3
     {
+        // 별 찍기 - 7
+        public void Solve_2444()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                int num = Convert.ToInt32(sr.ReadLine());
+                int loopCount = num * 2 - 1;
+
+                string spaceStr = "";
+                string starStr = "";
+
+                for (int i = 0; i < num - 1; i++)
+                {
+                    spaceStr += " ";
+                }
+
+                for (int i = 0; i < loopCount; i++)
+                {
+                    starStr += "*";
+                }
+
+                int printStarLength = 0;
+
+                for (int i = 0; i < loopCount; i++)
+                {
+                    if (i < num)
+                    {
+                        printStarLength = i * 2 + 1;
+                    }
+                    else
+                    {
+                        printStarLength -= 2;
+                    }
+
+                    Console.WriteLine($"{spaceStr.Substring(0, Math.Abs(spaceStr.Length - i))}{starStr.Substring(0, printStarLength)}");
+                }
+            }
+        }
+
         // 오븐 시계
         public void Solve_2525()
         {
