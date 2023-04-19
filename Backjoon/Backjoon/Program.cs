@@ -9,11 +9,11 @@ namespace Backjoon
         {
             //Bronze1 b1 = new Bronze1();
             //Bronze2 b2 = new Bronze2();
-            Bronze3 b3 = new Bronze3();
-            //Bronze5 b5 = new Bronze5();
+            //Bronze3 b3 = new Bronze3();
+            Bronze5 b5 = new Bronze5();
             //Silver5 s5 = new Silver5();
 
-            b3.Solve_2444();
+            b5.Solve_2754();
         }
     }
 }

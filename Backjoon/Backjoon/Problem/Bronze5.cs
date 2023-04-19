@@ -114,6 +114,19 @@ namespace Backjoon.Problem
             }
         }
 
+        // 사파리 월드
+        public void Solve_2420()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string[] strArr = sr.ReadLine().Split(" ");
+                long first = Convert.ToInt64(strArr[0]);
+                long second = Convert.ToInt64(strArr[1]);
+
+                Console.WriteLine($"{Math.Abs(first - second)}");
+            }
+        }
+
         // 별 찍기 - 1
         public void Solve_2438()
         {
@@ -150,6 +163,43 @@ namespace Backjoon.Problem
             Console.WriteLine("Hello World!");
         }
 
+        // 행렬 덧셈
+        public void Solve_2738()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string[] strArr = sr.ReadLine().Split(" ");
+                int n = Convert.ToInt32(strArr[0]);
+                int m = Convert.ToInt32(strArr[1]);
+
+                string[] inputArr = new string[n * 2];
+
+                for (int i = 0; i < inputArr.Length; i++)
+                {
+                    inputArr[i] = sr.ReadLine();
+                }
+
+                string[] result = new string[n];
+
+                for (int i = 0; i < inputArr.Length / 2; i++)
+                {
+                    int[] temp = inputArr[i].Split(" ").Select(x => Convert.ToInt32(x)).ToArray();
+                    int[] temp2 = inputArr[i + inputArr.Length / 2].Split(" ").Select(x => Convert.ToInt32(x)).ToArray();
+
+                    int[] temp3 = new int[temp.Length];
+
+                    for (int j = 0; j < temp.Length; j++)
+                    {
+                        temp3[j] = temp[j] + temp2[j];
+                    }
+
+                    result[i] = string.Join(" ", temp3.Select(x => x.ToString()).ToArray());
+
+                    Console.WriteLine(result[i]);
+                }
+            }
+        }
+
         // 구구단
         public void Solve_2739()
         {
@@ -166,15 +216,6 @@ namespace Backjoon.Problem
                 }
 
                 Console.WriteLine(res);
-            }
-        }
-
-        // 단어 길이 재기
-        public void Solve_2743()
-        {
-            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
-            {
-                Console.WriteLine(sr.ReadLine().Length);
             }
         }
 
@@ -207,6 +248,27 @@ namespace Backjoon.Problem
             }
         }
 
+        // 단어 길이 재기
+        public void Solve_2743()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                Console.WriteLine(sr.ReadLine().Length);
+            }
+        }
+
+        // 대소문자 바꾸기
+        public void Solve_2744()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+                var temp = str.Select(x => x >= 'A' && x <= 'Z' ? x.ToString().ToLower() : x.ToString().ToUpper());
+
+                Console.WriteLine(string.Join("", temp.ToArray()));
+            }
+        }
+
         // 윤년
         public void Solve_2753()
         {
@@ -230,6 +292,49 @@ namespace Backjoon.Problem
                 }
 
                 Console.WriteLine(isTrue);
+            }
+        }
+
+        // 학점계산
+        public void Solve_2754()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string str = sr.ReadLine();
+                double result = 0;
+
+                switch (str.First())
+                {
+                    case 'A':
+                        result = 4;
+                        break;
+                    case 'B':
+                        result = 3;
+                        break;
+                    case 'C':
+                        result = 2;
+                        break;
+                    case 'D':
+                        result = 1;
+                        break;
+                    case 'F':
+                        break;
+                }
+
+                if (str.First() != 'F')
+                {
+                    switch (str.Last())
+                    {
+                        case '+':
+                            result += 0.3;
+                            break;
+                        case '-':
+                            result -= 0.3;
+                            break;
+                    }
+                }
+
+                Console.WriteLine($"{result:F1}");
             }
         }
 
@@ -284,6 +389,13 @@ namespace Backjoon.Problem
 
                 Console.WriteLine($"{firstIndex + 1}\n{lastIndex + 1}");
             }
+        }
+
+        // 등록
+        public void Solve_7287()
+        {
+            Console.WriteLine("77");
+            Console.WriteLine("ejsja");
         }
 
         // 합
@@ -390,11 +502,34 @@ namespace Backjoon.Problem
             }
         }
 
+        // 오늘 날짜
+        public void Solve_10699()
+        {
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd"));
+        }
+
         // We love kriii
         public void Solve_10718()
         {
             Console.WriteLine("강한친구 대한육군");
             Console.WriteLine("강한친구 대한육군");
+        }
+
+        // 팩토리얼
+        public void Solve_10872()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                int num = Convert.ToInt32(sr.ReadLine());
+                long result = 1;
+
+                for (int i = 0; i < num; i++)
+                {
+                    result *= (i + 1);
+                }
+
+                Console.WriteLine(result);
+            }
         }
 
         // 개수 세기
@@ -862,6 +997,19 @@ namespace Backjoon.Problem
                 }
 
                 Console.WriteLine(quadrant);
+            }
+        }
+
+        // 이상한 기호
+        public void Solve_15964()
+        {
+            using (StreamReader sr = new StreamReader(Console.OpenStandardInput()))
+            {
+                string[] strArr = sr.ReadLine().Split(" ");
+                long first = Convert.ToInt64(strArr[0]);
+                long second = Convert.ToInt64(strArr[1]);
+
+                Console.WriteLine($"{(first + second) * (first - second)}");
             }
         }
 
